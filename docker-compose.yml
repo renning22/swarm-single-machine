@@ -7,7 +7,7 @@ services:
     environment:
       - CLEF_CHAINID
     volumes:
-      - clef-1:/app/data
+      - /data/clef:/app/data
     command: full
 
   bee-1:
@@ -57,10 +57,10 @@ services:
       - "${P2P_ADDR:-1634}${BEE_P2P_ADDR:-:1634}"
       - "${DEBUG_API_ADDR:-127.0.0.1:1635}${BEE_DEBUG_API_ADDR:-:1635}"
     volumes:
-      - bee-1:/home/bee/.bee
+      - /data/bee:/home/bee/.bee
     command: start
     depends_on:
       - clef-1
-volumes:
-  clef-1:
-  bee-1:
+# volumes:
+#   clef-1:
+#   bee-1:
