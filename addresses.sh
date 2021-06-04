@@ -1,1 +1,1 @@
-curl localhost:1635/addresses | jq
+curl -s localhost:1635/addresses | jq
