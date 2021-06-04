@@ -1,15 +1,41 @@
+## Prerequisites
+
 * Install Docker Engine
     * https://docs.docker.com/engine/install/ubuntu/
 * Install Docker Compose
     * https://docs.docker.com/compose/install/
 
+## Prepare 
+
+```
+git clone https://github.com/renning22/swarm-single-machine.git
+cd swarm-single-machine
+```
+
+```
 mkdir -p /data/clef
 sudo chown -R nobody:nogroup /data/clef
-
 mkdir -p /data/bee
 sudo chown -R 999:999 /data/bee
+```
+## Start Node
 
-sudo docker-compose up -d
-sudo docker-compose logs -f clef-1
-sudo docker-compose logs -f bee-1
-sudo docker-compose down
+1. Start docker containers clef-1 + bee-1.
+```
+./up.sh
+```
+
+2. Get addresses
+```
+./addresses.sh
+```
+3. Verify ETH address and P2P PUBLIC_IP:1634
+4. Fund this ETH address (0.1 ETH + 10 BZZ)!
+5. Verify there are peers
+```
+./peers
+```
+## Cashout once a day!
+```
+./cashout cashout-all
+```
