@@ -5,6 +5,17 @@
 * Install Docker Compose
     * https://docs.docker.com/compose/install/
 
+## All-In-One
+```
+git clone https://github.com/renning22/swarm-single-machine.git
+cd swarm-single-machine
+./prepare.sh
+./up.sh
+./log.sh
+
+```
+
+# Detail
 ## Prepare 
 
 ```
