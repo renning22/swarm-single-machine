@@ -30,7 +30,7 @@ sudo chown -R 999:999 /data/bee
 ./addresses.sh
 ```
 3. Verify ETH address and P2P PUBLIC_IP:1634
-4. Fund this ETH address (0.1 ETH + 10 BZZ)!
+4. Fund this ETH address (1 ETH + 1 BZZ)!
 5. Verify there are peers
 ```
 ./peers
