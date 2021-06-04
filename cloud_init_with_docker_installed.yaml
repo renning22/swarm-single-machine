@@ -27,5 +27,10 @@ runcmd:
 power_state:
   mode: reboot
   message: Restarting after installing docker & docker-compose
+# final_message
+# default: cloud-init boot finished at $TIMESTAMP. Up $UPTIME seconds
+# this message is written by cloud-final when the system is finished
+# its first boot
+final_message: "The system is finally up, after $UPTIME seconds"
 ssh_authorized_keys:
   - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDTuwtTXZumpNvMSwRf3c4rmm1+MBS5fat2l0dXujY9Xqc/kW3kQzRCugamVqVZRTMb3wG1+Avn/F9FJhzUGRU2OXvTqf3uBZFoWpO4fhGylFtmXXpnFOJqACx8pTpR4I5n6ygkugbFxjmN+6SlUCkkaI+dttbp+2xJpg12187ZzliWYnBeW0MefQwUCA8DrFpodolD+V25ywFWc8Hp0tjibaFLkodrc5/ytbFJSaITF/SKzXhGJ8GBt9xHyelDyN8RDwlSa2EV+R+6zl+VWwFU8LlrReZLx9/BVyLX6ltRqtGDDe3Yq2gcr73UjBkzgcu0mo0jFM1iHxKSC0d2B4xdgfCnApFCNGDvfungpy7qUmSG+7Key7EefAwK0BceL5d9B5Lz4+67s+Z9r5WfFyO8yY6VFJI1LqbENZpLHVUK0/BHK2pOM58rPszJyG2aKzmG5yE4vsn42soR9a0e1fIrnX7XRLpzcOWYS0bgTnWFhOvkCNEHy06dvYt50RmISI3g1sCBiOBP8JmZY/niXBrGTuc4mZVP7DPety4ogGVLpQ9c6YiemySboZBDy5HmF5w6/c8GLWSY9WQ3NACGcSGD806X/MqYDrV0Y1mpjc+sDRjic0TG269/yYdR0wciQnBjjJQ3f3a2uJuMLnqXmxPYNGTicI8tcOoQYX9h1KbzXQ== renning22@gmail.com
