@@ -1,1 +1,1 @@
-curl localhost:1635/peers | jq
+curl -s http://localhost:1635/peers | jq '.peers | length'
