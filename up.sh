@@ -1,4 +1,4 @@
-export PUBLIC_IP=$(curl -s icanhazip.com)
+export PUBLIC_IP=$(curl -s -4 icanhazip.com)
 echo "PUBLIC_IP=$PUBLIC_IP"
 
 export BEE_NAT_ADDR=${PUBLIC_IP}:1634
