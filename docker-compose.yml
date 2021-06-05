@@ -72,7 +72,6 @@ services:
       interval: 1m30s
       timeout: 10s
       retries: 3
-      start_period: 40s
 # volumes:
 #   clef-1:
 #   bee-1:
