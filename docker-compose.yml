@@ -67,6 +67,12 @@ services:
     command: start
     depends_on:
       - clef-1
+    healthcheck:
+      test: curl -f localhost:1633/ || exit 1
+      interval: 1m30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
 # volumes:
 #   clef-1:
 #   bee-1:
