@@ -3,4 +3,3 @@ set -x
 
 ./prepare.sh
 ./up.sh
-./log.sh
