@@ -1,4 +1,6 @@
+import itertools
 import time
+from datetime import datetime
 
 from fabric import Connection
 
@@ -19,7 +21,10 @@ hosts = [
     "152.32.251.236"
 ]
 
-while True:
+for epoch in itertools.count(start=1):
+    print()
+    print(f'epoch = {epoch}, current time = {datetime.now()}')
+
     for i, host in enumerate(hosts):
         print(f'==== {i:02}/{len(hosts):02} : {host} ====')
         conn = Connection(f'ubuntu@{host}')
@@ -30,5 +35,7 @@ while True:
         if not result.stdout.strip():
             print('Restarting...')
             conn.run('cd swarm-single-machine && ./restart.sh')
+        conn.run('curl -s localhost:1635/chequebook/cheque | jq')
+        conn.run('cd swarm-single-machine && ./cashout.sh')
 
     time.sleep(60)
