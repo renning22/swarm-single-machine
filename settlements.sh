@@ -1,0 +1,1 @@
+curl -s http://localhost:1635/settlements | jq
