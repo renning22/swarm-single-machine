@@ -6,7 +6,7 @@
 #  clone https://github.com/renning22/swarm-single-machine.git
 #  cd swarm-single-machine
 #
-#  python3 tyun_deploy_first_10.py
+#  python3 tyun_get_eth_addresses.py
 
 from fabric import Connection
 from invoke import UnexpectedExit
@@ -27,9 +27,5 @@ hosts = [
 for i, host in enumerate(hosts):
     print(f'==== {i:02}/{len(hosts):02} : {host} ====')
     conn = Connection(host)
-    conn.run('hostname')
-    try:
-        conn.run('git clone https://github.com/renning22/swarm-single-machine.git && cd swarm-single-machine && ./init.sh')
-    except UnexpectedExit:
-        print('Skip...')
+    conn.run('cd swarm-single-machine && ./addresses.sh')
     print()
