@@ -8,6 +8,8 @@
 #
 #  python3 tyun_get_eth_addresses.py
 
+import json
+
 from fabric import Connection
 from invoke import UnexpectedExit
 
@@ -27,5 +29,7 @@ hosts = [
 for i, host in enumerate(hosts):
     print(f'==== {i:02}/{len(hosts):02} : {host} ====')
     conn = Connection(host)
-    conn.run('cd swarm-single-machine && ./addresses.sh')
+    result = conn.run('cd swarm-single-machine && ./addresses.sh', hide=True)
+    payload = json.loads(result.stdout.strip())
+    print(payload['ethereum'])
     print()
