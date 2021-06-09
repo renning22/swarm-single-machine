@@ -27,9 +27,7 @@ hosts = [
 ]
 
 for i, host in enumerate(hosts):
-    print(f'==== {i:02}/{len(hosts):02} : {host} ====')
     conn = Connection(host)
     result = conn.run('cd swarm-single-machine && ./addresses.sh', hide=True)
     payload = json.loads(result.stdout.strip())
-    print(payload['ethereum'])
-    print()
+    print(f"{host}, {payload['ethereum']}")
