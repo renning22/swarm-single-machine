@@ -5,4 +5,4 @@ sudo docker run --detach \
   -p 8546:8546 \
   -p 30303:30303 \
   -v /data/ethereum:/root/.ethereum \
-  ethereum/client-go:stable --syncmode "light" --cache=512 --http --http.addr "0.0.0.0" --http.vhosts=* --ws --ws.addr "0.0.0.0" --ws.origins '*' --goerli
+  ethereum/client-go:stable --syncmode "light" --cache=512 --http --http.addr "0.0.0.0" --http.vhosts=* --ws --ws.addr "0.0.0.0" --ws.origins=* --goerli
