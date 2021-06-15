@@ -2,8 +2,8 @@
 set -e
 set -x
 
-# replace swap ethereum blockchain endpoint
-sed -i "s/swap-endpoint-01/$1/" .env
+# add swap ethereum blockchain endpoint
+printf "BEE_SWAP_ENDPOINT=$1\n" | tee -a .env
 
 ./prepare.sh
 ./up.sh
