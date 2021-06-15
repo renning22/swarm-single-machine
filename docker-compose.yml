@@ -5,7 +5,7 @@ services:
     image: ethersphere/clef:0.4.12
     restart: unless-stopped
     environment:
-      - CLEF_CHAINID
+      - CLEF_CHAINID=5
     ports:
       - "127.0.0.1:8550:8550"
     volumes:
@@ -21,7 +21,7 @@ services:
       - BEE_BLOCK_TIME
       - BEE_BOOTNODE
       - BEE_BOOTNODE_MODE
-      - BEE_CLEF_SIGNER_ENABLE
+      - BEE_CLEF_SIGNER_ENABLE=true
       - BEE_CLEF_SIGNER_ENDPOINT=http://127.0.0.1:8550
       - BEE_CONFIG
       - BEE_CORS_ALLOWED_ORIGINS
@@ -32,16 +32,16 @@ services:
       - BEE_DB_WRITE_BUFFER_SIZE
       - BEE_DB_DISABLE_SEEKS_COMPACTION
       - BEE_DEBUG_API_ADDR
-      - BEE_DEBUG_API_ENABLE
+      - BEE_DEBUG_API_ENABLE=true
       - BEE_GATEWAY_MODE
       - BEE_GLOBAL_PINNING_ENABLE
-      - BEE_FULL_NODE
+      - BEE_FULL_NODE=true
       - BEE_NAT_ADDR
       - BEE_NETWORK_ID
       - BEE_P2P_ADDR
       - BEE_P2P_QUIC_ENABLE
       - BEE_P2P_WS_ENABLE
-      - BEE_PASSWORD
+      - BEE_PASSWORD=asdasdasd
       - BEE_PASSWORD_FILE
       - BEE_PAYMENT_EARLY
       - BEE_PAYMENT_THRESHOLD
@@ -50,17 +50,17 @@ services:
       - BEE_RESOLVER_OPTIONS
       - BEE_STANDALONE
       - BEE_SWAP_ENABLE
-      - BEE_SWAP_ENDPOINT
+      - BEE_SWAP_ENDPOINT=ws://swap-endpoint-01:8546
       - BEE_SWAP_FACTORY_ADDRESS
       - BEE_SWAP_LEGACY_FACTORY_ADDRESSES
       - BEE_SWAP_INITIAL_DEPOSIT
-      - BEE_SWAP_DEPLOYMENT_GAS_PRICE
+      - BEE_SWAP_DEPLOYMENT_GAS_PRICE=1000000000000
       - BEE_TRACING_ENABLE
       - BEE_TRACING_ENDPOINT
       - BEE_TRACING_SERVICE_NAME
       - BEE_TRANSACTION
       - BEE_VERBOSITY
-      - BEE_WELCOME_MESSAGE
+      - BEE_WELCOME_MESSAGE="链派科技 微信chainpion2021"
     volumes:
       - /data/bee:/home/bee/.bee
     command: start
