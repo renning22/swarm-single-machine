@@ -33,15 +33,15 @@ for epoch in itertools.count(start=1):
 
     for i, host in enumerate(hosts):
         print(f'==== {i:02}/{len(hosts):02} : {host} ====')
-        conn = Connection(f'ubuntu@{host}')
-        conn.run('hostname')
-        result = conn.run(
-            "curl -s http://localhost:1635/peers | jq '.peers | length'", hide=True)
-        print(f'peers = {result.stdout.strip()}')
-        if not result.stdout.strip():
-            print('Restarting...')
-            conn.run('cd swarm-single-machine && ./restart.sh')
-        conn.run('curl -s localhost:1635/chequebook/cheque | jq')
-        conn.run('cd swarm-single-machine && ./cashout.sh')
+        with Connection(f'ubuntu@{host}') as conn:
+            conn.run('hostname')
+            result = conn.run(
+                "curl -s http://localhost:1635/peers | jq '.peers | length'", hide=True)
+            print(f'peers = {result.stdout.strip()}')
+            if not result.stdout.strip():
+                print('Restarting...')
+                conn.run('cd swarm-single-machine && ./restart.sh')
+            conn.run('curl -s localhost:1635/chequebook/cheque | jq')
+            conn.run('cd swarm-single-machine && ./cashout.sh')
 
     time.sleep(60)
