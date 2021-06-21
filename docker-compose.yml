@@ -6,8 +6,6 @@ services:
     restart: unless-stopped
     environment:
       - CLEF_CHAINID=5
-    ports:
-      - "127.0.0.1:8550:8550"
     volumes:
       - /data/clef:/app/data
     command: full
