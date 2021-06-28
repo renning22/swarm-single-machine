@@ -5,7 +5,7 @@ services:
     image: ethersphere/clef:0.4.12
     restart: unless-stopped
     environment:
-      - CLEF_CHAINID=5
+      - CLEF_CHAINID=100
     volumes:
       - /data/clef:/app/data
     command: full
@@ -34,7 +34,7 @@ services:
       - BEE_GLOBAL_PINNING_ENABLE
       - BEE_FULL_NODE=true
       - BEE_NAT_ADDR
-      - BEE_NETWORK_ID
+      - BEE_NETWORK_ID=${BEE_NETWORK_ID:-1}
       - BEE_P2P_ADDR
       - BEE_P2P_QUIC_ENABLE
       - BEE_P2P_WS_ENABLE
@@ -58,6 +58,7 @@ services:
       - BEE_TRANSACTION
       - BEE_VERBOSITY
       - BEE_WELCOME_MESSAGE="链派科技 微信chainpion2021"
+      - BEE_MAINNET=${BEE_MAINNET:-true}
     ports:
       - "${API_ADDR:-1633}${BEE_API_ADDR:-:1633}"
       - "${P2P_ADDR:-1634}${BEE_P2P_ADDR:-:1634}"
